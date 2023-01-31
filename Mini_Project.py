@@ -2,6 +2,7 @@
 product_menu_option=["returne", "print", "create", "update", "delete"]
 courier_menu_option=["returne", "print", "create", "update", "delete"]
 
+print("change")
 
 inputt=int(input("exit(0) , product_menu_option(1) , courier_menu_option(2): "))
 if inputt == 0:
