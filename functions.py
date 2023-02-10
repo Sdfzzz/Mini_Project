@@ -6,10 +6,10 @@ def file_reader(list_name):
         content=json.load(file)
         return content 
 
+
 def file_writer(list_name, content_to_write):
     with open(list_name, "w")as file:
         json.dump(content_to_write, file, indent=4)  
-
 
 
 #Products
@@ -52,6 +52,7 @@ def products_delete():
 
 
 #Couriers
+
 
 def couriers_print():
     couriers=file_reader("couriers_list.json")
@@ -125,8 +126,6 @@ def orders_create():
     print_list(orders)
     
 
-
-
 status=["preparing", "sending", "delivered"]
 def orders_update_status():
     orders=file_reader("orders_list.json")
@@ -153,8 +152,6 @@ def orders_update_order():
         orders[order_number]["customer_phone"]=new_phone
     file_writer("orders_list.json", orders)
     print_list(orders)
-
-
 
 
 def orders_delete():
