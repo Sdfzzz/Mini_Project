@@ -1,6 +1,5 @@
 
 import json
-from functions import print_list
 from functions import products_print, products_create, products_update, products_delete
 from functions import couriers_print, couriers_create, couriers_update,couriers_delete
 from functions import orders_print, orders_create, orders_update_status, orders_update_order, orders_delete

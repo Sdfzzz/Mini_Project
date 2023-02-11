@@ -96,19 +96,26 @@ def couriers_delete():
 #orders
 
 
-def print_list(my_list):
-    for i in range(len(my_list)):
-        print(my_list[i] , f" : number {i} ")
-
-
 def orders_print():
     orders=file_reader("orders_list.json")
-    print_list(orders)
+    for i in range(len(orders)):
+        ordercustomername=orders[i]["customer_name"]
+        a=f"customer_name:  {ordercustomername} \n"
+        ordercustomeraddress=orders[i]["customer_address"]
+        b=f"customer_address: {ordercustomeraddress} \n"
+        ordercustomerphone=orders[i]["customer_phone"]
+        c=f"customer_phone:  {ordercustomerphone} \n"
+        ordercourier=orders[i]["courier"]
+        d=f"courier:  {ordercourier} \n"
+        orderstatus=orders[i]["status"]
+        e=f"status:  {orderstatus} \n"
+        num=f"customer number: {i} \n"
+        print(num+a+b+c+d+e ) 
 
 
 def orders_create():
     orders=file_reader("orders_list.json")
-    print_list(orders)
+    orders_print()
     couriers=file_reader("couriers_list.json")
     customername=input("customer_name:")
     customeraddress=input("customer_address:")
@@ -123,23 +130,23 @@ def orders_create():
     "status":customerstatus }
     orders.append(neworder)
     file_writer("orders_list.json",orders)
-    print_list(orders)
+    orders_print()
     
 
 status=["preparing", "sending", "delivered"]
 def orders_update_status():
     orders=file_reader("orders_list.json")
-    print_list(orders)
+    orders_print()
     status_index=int(input("preparing(0), sending(1), delivered(2):"))
     status=int(input("order number:"))
     status[status_index]=orders[status]["status"]
     file_writer("orders_list.json", orders)
-    print_list(orders)
+    orders_print()
 
 
 def orders_update_order():
     orders=file_reader("orders_list.json")
-    print_list(orders)
+    orders_print()
     order_number=int(input("order number:"))
     new_name=input("customer_name:")
     if new_name != "":  
@@ -151,15 +158,15 @@ def orders_update_order():
     if new_phone != "":
         orders[order_number]["customer_phone"]=new_phone
     file_writer("orders_list.json", orders)
-    print_list(orders)
+    orders_print()
 
 
 def orders_delete():
     orders=file_reader("orders_list.json")
-    print_list(orders)
+    orders_print()
     delete_order=int(input("delete order number: "))
     del orders[delete_order]
     file_writer("orders_list.json", orders)
-    print_list(orders)
+    orders_print()
 
 
