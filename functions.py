@@ -99,6 +99,7 @@ def couriers_delete():
 def orders_print():
     orders=file_reader("orders_list.json")
     for i in range(len(orders)):
+        num=f"customer number: {i} \n"
         ordercustomername=orders[i]["customer_name"]
         a=f"customer_name:  {ordercustomername} \n"
         ordercustomeraddress=orders[i]["customer_address"]
@@ -109,7 +110,6 @@ def orders_print():
         d=f"courier:  {ordercourier} \n"
         orderstatus=orders[i]["status"]
         e=f"status:  {orderstatus} \n"
-        num=f"customer number: {i} \n"
         print(num+a+b+c+d+e ) 
 
 
