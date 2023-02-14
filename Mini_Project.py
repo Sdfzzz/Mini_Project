@@ -5,9 +5,9 @@ from functions import couriers_print, couriers_create, couriers_update,couriers_
 from functions import orders_print, orders_create, orders_update_status, orders_update_order, orders_delete
 
 
-product_menu_option=["returne", "print", "create", "update", "delete"]
-courier_menu_option=["returne", "print", "create", "update", "delete"]
-order_menu_option=["returne", "print", "create", "update status", "update order", "delete"]
+product_menu_option=["return", "print", "create", "update", "delete"]
+courier_menu_option=["return", "print", "create", "update", "delete"]
+order_menu_option=["return", "print", "create", "update status", "update order", "delete"]
 
 
 while True:

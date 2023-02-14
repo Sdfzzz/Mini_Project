@@ -3,21 +3,32 @@
         "customer_name": "Jphn",
         "customer_address": "Unit 1, 12 Main Street, LONDON, WH1 2ER",
         "customer_phone": "0789887334",
-        "courier": "saba",
-        "status": "preparing"
+        "courier": 0,
+        "status": "preparing",
+        "items": [
+            1,
+            2
+        ]
     },
     {
         "customer_name": "Johnson",
         "customer_address": "Unit 3, 12 Main Street, LONDON, WH1 2ER",
         "customer_phone": "0789887335",
-        "courier": "sara",
-        "status": "sending"
+        "courier": 1,
+        "status": "sending",
+        "items": [
+            0,
+            2
+        ]
     },
     {
         "customer_name": "Emma",
         "customer_address": "Unit 4, 12 Main Street, LONDON, WH1 2ER",
         "customer_phone": "0789887336",
-        "courier": "sina",
-        "status": "delivered"
+        "courier": 0,
+        "status": "delivered",
+        "items": [
+            0
+        ]
     }
 ]

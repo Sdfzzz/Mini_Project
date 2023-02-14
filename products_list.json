@@ -1,6 +1,17 @@
-{
-    "sandwich": 1,
-    "pizza": 2,
-    "coke": 3,
-    "fanta": 4
-}
+[
+    {
+        "name": "sandwich",
+        "price": 0.8
+    },
+    {
+        "name": "pizza",
+        "price": 2
+    },
+    {
+        "name": "coke",
+        "price": "0.5",
+        "product name": "coke zero",
+        "customer_address": "0.5",
+        "product price": "0.5"
+    }
+]
