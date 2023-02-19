@@ -1,5 +1,5 @@
 import json
-
+import random
 
 def file_reader(list_name):
     with open (list_name)as file:
@@ -14,24 +14,36 @@ def file_writer(list_name, content_to_write):
 
 #Products
 
+def code_products():
+    products=file_reader("products_list.json")
+    for i in range(len(products)):
+            y=random.randint(1,100)
+            while True:
+                codenumbers=products[i]["code"]
+                if y== codenumbers :
+                    y=random.randint(1,100)
+                else: return y
+
 
 def products_print():
     products=file_reader("products_list.json")
     for i in range(len(products)):
         num=f"product number: {i} \n"
+        productcode=products[i]["code"]
+        code=f"code:  {productcode} \n"
         productname=products[i]["name"]
         name=f"name:  {productname} \n"
         productprice=products[i]["price"]
         price=f"price:  {productprice} \n"
-        print("\n"+num+name+price)
-
+        print("\n"+num+code+name+price)
+            
 
 def products_create(): 
     products=file_reader("products_list.json")
     products_print()
     new_name=input("new name: ")
     new_price=input("new price: ")
-    newproduct={"name":new_name, "price":new_price}
+    newproduct={ "code":code_products(), "name":new_name, "price":new_price}
     products.append(newproduct)
     file_writer("products_list.json", products)
     products_print()
@@ -62,16 +74,28 @@ def products_delete():
 
 #Couriers
 
+def code_couriers():
+    couriers=file_reader("couriers_list.json")
+    for i in range(len(couriers)):
+            y=random.randint(1,100)
+            while True:
+                codenumbers=couriers[i]["code"]
+                if y== codenumbers :
+                    y=random.randint(1,100)
+                else: return y
+
 
 def couriers_print():
     couriers=file_reader("couriers_list.json")
     for i in range(len(couriers)):
         num=f"courier number: {i} \n"
+        couriercode=couriers[i]["code"]
+        code=f"code:  {couriercode} \n"
         couriername=couriers[i]["name"]
         name=f"name:  {couriername} \n"
         courierphone=couriers[i]["phone"]
         price=f"phone:  {courierphone} \n"
-        print("\n"+num+name+price)
+        print("\n"+num+code+name+price)
 
 
 def couriers_create():
@@ -79,7 +103,7 @@ def couriers_create():
     couriers_print()
     new_name=input("new name: ")
     new_phone=input("new phone: ")
-    newcourier={"name":new_name, "phone":new_phone}
+    newcourier={"code":code_couriers(),"name":new_name, "phone":new_phone}
     couriers.append(newcourier)
     file_writer("couriers_list.json", couriers)
     couriers_print()
@@ -110,33 +134,36 @@ def couriers_delete():
 
 #orders
 
+def code_orders():
+    orders=file_reader("orders_list.json")
+    for i in range(len(orders)):
+            y=random.randint(1,100)
+            while True:
+                codenumbers=orders[i]["code"]
+                if y== codenumbers :
+                    y=random.randint(1,100)
+                else: return y
+
 
 def orders_print():
     orders=file_reader("orders_list.json")
     for i in range(len(orders)):
         num=f"customer number: {i} \n"
+        ordercode=orders[i]["code"]
+        a=f"code:  {ordercode} \n"
         ordercustomername=orders[i]["customer_name"]
-        a=f"customer_name:  {ordercustomername} \n"
+        b=f"customer_name:  {ordercustomername} \n"
         ordercustomeraddress=orders[i]["customer_address"]
-        b=f"customer_address:  {ordercustomeraddress} \n"
+        c=f"customer_address:  {ordercustomeraddress} \n"
         ordercustomerphone=orders[i]["customer_phone"]
-        c=f"customer_phone:  {ordercustomerphone} \n"
+        d=f"customer_phone:  {ordercustomerphone} \n"
         ordercourier=orders[i]["courier"]
-        d=f"courier:  {ordercourier} \n"
+        e=f"courier:  {ordercourier} \n"
         orderstatus=orders[i]["status"]
-        e=f"status:  {orderstatus} \n"
+        f=f"status:  {orderstatus} \n"
         orderitems=orders[i]["items"]
-        f=f"items:  {orderitems} \n"
-        print(num+a+b+c+d+e+f) 
-
-
-def couriers_print_order():
-    couriers=file_reader("couriers_list.json")
-    for i in range(len(couriers)):
-        num=f"courier number: {i} \n"
-        couriername=couriers[i]["name"]
-        name=f"name:  {couriername} \n"
-        print("\n"+num+name)
+        g=f"items:  {orderitems} \n"
+        print(num+a+b+c+d+e+f+g) 
 
 
 def orders_create():
@@ -147,11 +174,12 @@ def orders_create():
     customeraddress=input("customer_address:")
     customerphon=input("customer_phone:")
     products_print()
-    items = [int(x) for x in input("product index with space:").split()]
-    couriers_print_order()
-    customercourier=int(input("courier nimber:"))
+    items = [int(x) for x in input("product code with space:").split()]
+    couriers_print()
+    customercourier=int(input("courier code:"))
     customerstatus="preparing"
-    neworder={"customer_name":customername,
+    neworder={"code":code_orders(),
+    "customer_name":customername,
     "customer_address":customeraddress,
     "customer_phone":customerphon,
     "courier":customercourier,
@@ -160,7 +188,7 @@ def orders_create():
     orders.append(neworder)
     file_writer("orders_list.json",orders)
     orders_print()
-    
+
 
 status=["preparing", "sending", "delivered"]
 def orders_update_status():

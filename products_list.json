@@ -1,17 +1,17 @@
 [
     {
+        "code": 1,
         "name": "sandwich",
         "price": 0.8
     },
     {
+        "code": 2,
         "name": "pizza",
         "price": 2
     },
     {
-        "name": "coke",
-        "price": "0.5",
-        "product name": "coke zero",
-        "customer_address": "0.5",
-        "product price": "0.5"
+        "code": 83,
+        "name": "ww",
+        "price": "30"
     }
 ]
