@@ -4,6 +4,12 @@ test.py
 
 *.zip
 
+.env
+
+notebook
+123.ipynb
+
+
 
 
 
