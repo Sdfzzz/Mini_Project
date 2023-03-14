@@ -1,6 +1,7 @@
 import pymysql.cursors
 import os
 from dotenv import load_dotenv
+from database import *
 
 load_dotenv(".env")
 
@@ -34,6 +35,43 @@ def write_database(query):
 def close_database():
     cursor.close()
     connection.close()
+
+
+def initialize_db():
+    write_database(products_db)
+    write_database(couriers_db)
+    write_database(customers_db)
+    write_database(orders_db)
+    write_database(productorders_db)
+
+
+def beverage_count():
+    result=read_database("select  po.product_ID from productorders po")
+    z=0
+    for i in range(len(result)):
+        x=result[i]["product_ID"]
+        if x==3:
+            z=z+1
+        elif x==4:
+            z=z+1    
+    return z
+
+def meal_count():
+    result=read_database("select  po.product_ID from productorders po")
+    z=0
+    for i in range(len(result)):
+        x=result[i]["product_ID"]
+        if x==1:
+            z=z+1
+        elif x==2:
+            z=z+1    
+    return z
+
+
+beverage_order=beverage_count()
+meal_order=meal_count()
+
+
 
 #products
 
@@ -140,9 +178,9 @@ def customers_create():
     customers_print()
     customername=input("customer_name: ")
     customeraddress=input("customer_address: ")
-    customerphon=input("customer_phone: ")
-    result=f"""INSERT into couriers ( customer_name, customer_address, customer_phone) 
-    values ( '{customername}', '{customeraddress}','{customerphon}')"""
+    customerphone=input("customer_phone: ")
+    result=f"""INSERT into customers ( customer_name, customer_address, customer_phone) 
+    values ( '{customername}', '{customeraddress}','{customerphone}')"""
     write_database(result)  
     customers_print()
 

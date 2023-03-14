@@ -15,9 +15,11 @@ productorder_menu_option(5): """
 
 
 def all():
+    initialize_db()
     inputt=int(input(menu))
 
     if inputt == 0:
+        close_database()
         exit()
 
     elif inputt==1:
@@ -25,7 +27,7 @@ def all():
         while True:
             input_user=int(input("return(o), print(1), create(2), update(3) or delete(4): "))
             if input_user == 0:
-                break
+                all()
             elif input_user == 1  :
                 products_print()
             elif input_user == 2  :
@@ -42,15 +44,15 @@ def all():
         while True:
             input_user2=int(input("return(o), print(1), create(2), update(3) or delete(4): "))
             if input_user2 == 0:
-                break
+                all()
             elif input_user2 == 1  :
-                customers_print()
+                couriers_print()
             elif input_user2 == 2  :
-                customers_create()
+                couriers_create()
             elif input_user2 == 3  :
-                customers_update()
+                couriers_update()
             elif input_user2 == 4  :
-                customers_delete()
+                couriers_delete()
             else:
                 print("Wrong input \nTry again")    
 
@@ -59,15 +61,15 @@ def all():
         while True:
             input_user3=int(input("return(o), print(1), create(2), update(3) or delete(4): "))
             if input_user3 == 0:
-                break
+                all()
             elif input_user3 == 1  :
-                couriers_print()
+                customers_print()
             elif input_user3 == 2  :
-                couriers_create()
+                customers_create()
             elif input_user3 == 3  :
-                couriers_update()
+                customers_update()
             elif input_user3 == 4  :
-                couriers_delete()  
+                customers_delete()  
             else:
                 print("Wrong input \nTry again")              
     
@@ -76,7 +78,7 @@ def all():
         while True:
             input_user4=int(input("return(o), print(1), create(2), update status(3), update order(4) or delete(5): "))
             if input_user4 == 0:
-                break
+                all()
             elif input_user4 == 1  :
                 orders_print()
             elif input_user4 == 2  :
@@ -95,14 +97,15 @@ def all():
         while True:
             input_user5=int(input("return(o), print(1), print total order(2): "))
             if input_user5 == 0:
-                break
+                all()
             elif input_user5 == 1  :
-                orders_print()
+                productorders_print()
             elif input_user5 == 2  :
                 ordertotal_print()    
             else:
                 print("Wrong input \nTry again")   
-
+    else:
+        print("Wrong input \nTry again")
     all()             
 all()        
             

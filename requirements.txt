@@ -10,3 +10,10 @@ matplotlib
 
 pandas
 
+Flask
+
+connexion[swagger-ui]==2.14.1
+
+
+
+
